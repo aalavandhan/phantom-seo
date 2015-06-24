@@ -1,0 +1,67 @@
+<style>
+  body {
+    text-align: center;
+    padding-top: 100px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  h3 {
+    font-weight: 100 !important;
+    color: #9a9a9a;
+  }
+  a {
+    text-decoration: none;
+    color: #00CC78;
+  }
+  a:hover {
+    text-decoration: none;
+  }
+  .cs{
+    display: none !important;
+  }
+</style>
+
+<div id='overlay'>
+  <h3>
+    Redirecting you to the app, If you are not redirected in
+    <span id='seconds'>3</span> seconds <br>
+    <a id='redirect-link'>click here</a>
+  </h3>
+</div>
+
+<script>
+  var seconds = 3,
+      linkEl = document.getElementById('redirect-link'),
+      timeEl = document.getElementById('seconds'),
+      url;
+
+  timeEl.innerHTML = seconds;
+
+  function getParameterByName(name) {
+    var params = {};
+    if (location.search) {
+      var parts = location.search.substring(1).split('&');
+      for (var i = 0; i < parts.length; i++) {
+        var nv = parts[i].split('=');
+        if (!nv[0]) continue;
+        params[nv[0]] = nv[1] || true;
+      }
+    }
+    return params[name];
+  };
+
+  url = 'http://viewora.com/#!' + getParameterByName('_share');
+
+  linkEl.href = url;
+
+  window.setTimeout(function(){
+    window.location.href = url;
+  }, 3000);
+
+  window.setInterval(function(){
+    seconds--;
+    if (seconds <= 0 ) {
+      return;
+    };
+    timeEl.innerHTML = seconds;
+  }, 1000);
+</script>
