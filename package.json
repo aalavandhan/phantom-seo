@@ -1,0 +1,18 @@
+{
+  "name": "viewora-phantom",
+  "version": "1.0.0",
+  "description": "Static HTML pages for viewora",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "phantomjs",
+    "viewora"
+  ],
+  "author": "Nithin Krishna",
+  "license": "MIT",
+  "dependencies": {
+    "phantom": "^0.7.2"
+  }
+}
