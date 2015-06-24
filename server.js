@@ -31,8 +31,8 @@ function handleRequest(request, response){
         });
       };
 
-      if(queryObject._escaped_fragment_){
-        fetchPage(queryObject._escaped_fragment_);
+      if(queryObject._escaped_fragment_ || queryObject.share){
+        fetchPage(queryObject._escaped_fragment_ || queryObject.share);
       } else {
         response.end("Oops.. Nothing to find here!");
       };
